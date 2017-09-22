@@ -26,3 +26,158 @@
     </div>
   </div>
 </div>
+
+<!-- A Movie has many directors -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Directors
+      </li>
+
+      <% @movie.directors.each do |director| %>
+        <li class="list-group-item">
+          <a href="/directors/<%= director.id %>">
+            <%= director.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/directors/<%= director.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/directors/<%= director.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_director/<%= director.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Movie has many castings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Castings
+      </li>
+
+      <% @movie.castings.each do |casting| %>
+        <li class="list-group-item">
+          <a href="/castings/<%= casting.id %>">
+            <%= casting.movie_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/castings/<%= casting.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/castings/<%= casting.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_casting/<%= casting.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Movie has many boomarks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Boomarks
+      </li>
+
+      <% @movie.boomarks.each do |boomark| %>
+        <li class="list-group-item">
+          <a href="/boomarks/<%= boomark.id %>">
+            <%= boomark.movie_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/boomarks/<%= boomark.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/boomarks/<%= boomark.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_boomark/<%= boomark.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Movie has many users -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Users
+      </li>
+
+      <% @movie.users.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.email %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Movie has many actors -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Actors
+      </li>
+
+      <% @movie.actors.each do |actor| %>
+        <li class="list-group-item">
+          <a href="/actors/<%= actor.id %>">
+            <%= actor.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/actors/<%= actor.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/actors/<%= actor.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_actor/<%= actor.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

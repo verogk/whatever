@@ -20,3 +20,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many boomarks -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Boomarks
+      </li>
+
+      <% @user.boomarks.each do |boomark| %>
+        <li class="list-group-item">
+          <a href="/boomarks/<%= boomark.id %>">
+            <%= boomark.movie_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/boomarks/<%= boomark.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/boomarks/<%= boomark.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_boomark/<%= boomark.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many movies -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Movies
+      </li>
+
+      <% @user.movies.each do |movie| %>
+        <li class="list-group-item">
+          <a href="/movies/<%= movie.id %>">
+            <%= movie.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/movies/<%= movie.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/movies/<%= movie.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_movie/<%= movie.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
