@@ -1,4 +1,14 @@
 class BoomarksController < ApplicationController
+  before_action :current_user_must_be_boomark_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_boomark_user
+    boomark = Boomark.find(params[:id])
+
+    unless current_user == boomark.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @boomarks = Boomark.all
 
