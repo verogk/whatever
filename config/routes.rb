@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "movies#index"
   # Routes for the Boomark resource:
   # CREATE
   get "/boomarks/new", :controller => "boomarks", :action => "new"
