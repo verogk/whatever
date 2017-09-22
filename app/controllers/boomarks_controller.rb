@@ -10,7 +10,8 @@ class BoomarksController < ApplicationController
   end
 
   def index
-    @boomarks = Boomark.page(params[:page]).per(10)
+    @q = Boomark.ransack(params[:q])
+    @boomarks = @q.result(:distinct => true).includes(:movie, :user).page(params[:page]).per(10)
 
     render("boomarks/index.html.erb")
   end
