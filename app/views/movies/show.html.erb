@@ -54,6 +54,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_director" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for date_of_birth -->
+      <div class="form-group">
+        <label for="date_of_birth" class="control-label">
+          Date of birth
+        </label>
+
+        <input type="text" id="date_of_birth" name="date_of_birth" placeholder="Date of birth" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for director_id -->
+      <div class="form-group">
+        <label for="director_id" class="control-label">
+          Director
+        </label>
+
+        <%= select_tag(:director_id, options_from_collection_for_select(Movie.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Director
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +123,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_casting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for movie_id -->
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+
+      <!-- Label and input for actor_id -->
+      <div class="form-group">
+        <label for="actor_id" class="control-label">
+          Actor
+        </label>
+
+        <%= select_tag(:actor_id, options_from_collection_for_select(Actor.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Casting
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -116,6 +177,23 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_boomark" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for movie_id -->
+      <input type="hidden" name="movie_id" value="<%= @movie.id %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Boomark
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
