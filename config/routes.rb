@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Boomark resource:
+  # CREATE
+  get "/boomarks/new", :controller => "boomarks", :action => "new"
+  post "/create_boomark", :controller => "boomarks", :action => "create"
+
+  # READ
+  get "/boomarks", :controller => "boomarks", :action => "index"
+  get "/boomarks/:id", :controller => "boomarks", :action => "show"
+
+  # UPDATE
+  get "/boomarks/:id/edit", :controller => "boomarks", :action => "edit"
+  post "/update_boomark/:id", :controller => "boomarks", :action => "update"
+
+  # DELETE
+  get "/delete_boomark/:id", :controller => "boomarks", :action => "destroy"
+  #------------------------------
+
   devise_for :users
   # Routes for the User resource:
   # READ
