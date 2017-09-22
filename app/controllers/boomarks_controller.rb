@@ -10,7 +10,7 @@ class BoomarksController < ApplicationController
   end
 
   def index
-    @boomarks = Boomark.all
+    @boomarks = Boomark.page(params[:page]).per(10)
 
     render("boomarks/index.html.erb")
   end
