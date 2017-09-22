@@ -16,8 +16,20 @@
 
       <% @boomarks.each do |boomark| %>
       <tr>
-        <td><%= boomark.movie.title %></td>
-        <td><%= boomark.user.email %></td>
+        <td>
+          <% if boomark.movie.present? %>
+            <a href="/movies/<%= boomark.movie.id %>">
+              <%= boomark.movie.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if boomark.user.present? %>
+            <a href="/users/<%= boomark.user.id %>">
+              <%= boomark.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/boomarks/<%= boomark.id %>" class="btn btn-primary">Show</a>
           

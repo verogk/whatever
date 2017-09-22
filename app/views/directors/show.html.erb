@@ -12,7 +12,13 @@
       <dd><%= @director.date_of_birth %></dd>
 
       <dt>Director</dt>
-      <dd><%= @director.director_id %></dd>
+      <dd>
+        <% if @director.director.present? %>
+          <a href="/movies/<%= @director.director_id %>">
+            <%= @director.director.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

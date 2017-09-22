@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Movie</dt>
-      <dd><%= @boomark.movie_id %></dd>
+      <dd>
+        <% if @boomark.movie.present? %>
+          <a href="/movies/<%= @boomark.movie_id %>">
+            <%= @boomark.movie.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @boomark.user_id %></dd>
+      <dd>
+        <% if @boomark.user.present? %>
+          <a href="/users/<%= @boomark.user_id %>">
+            <%= @boomark.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
